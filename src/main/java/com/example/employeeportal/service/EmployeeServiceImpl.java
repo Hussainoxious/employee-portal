@@ -19,31 +19,11 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public List<Employee> getEmployees() {
+    public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
     @Override
-    public List<Employee> getByDesignation(String designation) {
-        return employeeRepository.findByDesignation(designation);
-    }
-    @Override
-    public List<Employee> getByLocation(String location) {
-        return employeeRepository.findByLocation(location);
-    }
-    @Override
-    public List<Employee> getByEmployeeRating(float employeeRating) {
-        return employeeRepository.findByEmployeeRating(employeeRating);
-    }
-    @Override
-    public List<Employee> getByPractice(String practice) {
-        return employeeRepository.findByPractice(practice);
-    }
-//    @Override
-//    public List<Employee> getFromEverything(Employee employee) {
-//        return employeeRepository.findByFields(employee.getDesignation(), employee.getLocation(), employee.getEmployeeRating(), employee.getPractice());
-//    }
-    @Override
     public List<Employee> searchEmployees(String designation, String location, Float employeeRating, String practice) {
-        return employeeRepository.findByDesignationAndLocationAndEmployeeRatingAndPractice(designation, location, employeeRating, practice);
+        return employeeRepository.findByFields(designation, location, employeeRating, practice);
     }
 }

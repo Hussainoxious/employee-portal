@@ -14,7 +14,7 @@ public class Employee implements Serializable {
     private String location;
     private String practice;
     private String designation;
-    private float employeeRating;
+    private Float employeeRating;
 
     public int getId() {
         return id;
